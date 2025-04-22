@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Logo from "../../public/assets/logo.png";
 import Link from "next/link";
 import Navlink from "./Navlink";
+
 import { AiOutlineMenu, AiOutlineClose, AiOutlineInstagram, AiOutlineFacebook, AiOutlineTwitter } from "react-icons/ai";
 
 const Navbar = () => {
@@ -12,8 +13,9 @@ const Navbar = () => {
   const handleNav = () => {
     setMenuOpen(!menuOpen);
   };
+
   return (
-    <nav className="top-nav-container fixed w-full h-24 shadow-xl">
+    <nav className="top-nav-container fixed w-full h-24">
       <div className="flex justify-between items-center h-full w-full px-4 2xl:px-6">
         <div className="nav-logo-container h-full flex item-center- overflow-hidden">
           <Link href="/">
@@ -29,10 +31,10 @@ const Navbar = () => {
         </div>
         <div>
           <ul className="hidden sm:flex">
-            <Navlink href="/about" label="About Us?" />
-            <Navlink href="/contact" label="Contact Us" />
-            <Navlink href="/blog" label="Blog" />
-            <Navlink href="/services" label="Our Services" />
+            <Navlink href="/about" label="About Me" />
+            <Navlink href="/skills" label="Skills" />
+            <Navlink href="/projects" label="Projects" />
+            <Navlink href="/contact" label="Contact Me" />
           </ul>
 
           <div onClick={handleNav} className="sm:hidden cursor-pointer pl-24">
@@ -43,18 +45,18 @@ const Navbar = () => {
       <div
         className={
           menuOpen
-            ? "fixed left-0 top-0 w-[65%] max-w-[400px] sm-hidden h-screen bg-[#ecf0f3] p-10 ease-in"
+            ? "fixed left-0 top-0 w-[60%] max-w-[300px] sm-hidden h-screen bg-[#ecf0f3] p-8 ease-in duration-300"
             : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
         }
       >
-        <div className="flex w-full items-center justify-between h-10">
+        <div className="flex w-full items-center justify-between h-8">
           <Link href="/">
             <Image
               src={Logo}
               alt="Logo"
               width={65}
               height={80}
-              className="nav-logo-img flex cursor-pointer object-contain w-auto h-auto"
+              className="nav-logo-img flex cursor-pointer object-contain w-[75%] h-auto pt-2 float-left"
               priority
             />
           </Link>
@@ -62,12 +64,12 @@ const Navbar = () => {
             <AiOutlineClose size={25} />
           </div>
         </div>
-        <div className="flex-col py-4 pt-5">
+        <div className="flex-col py-5 pl-4 pt-10 text-lg font-bold">
           <ul>
             <Link href="/">
               <li
                 onClick={() => setMenuOpen(false)}
-                className="py-4 cursor-pointer"
+                className="py-5 cursor-pointer"
               >
                 Home
               </li>
